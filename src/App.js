@@ -1,11 +1,11 @@
 
 import './App.css';
-import MapView from './componets/Mapwiws/MapView';
+
+import RoutesPrincial from "../src/Routes/router"
 function App() {
   return (
     <div className="App">
-      <h2>Mapa</h2>
-      <MapView></MapView>
+      <RoutesPrincial></RoutesPrincial>
     </div>
   );
 }
