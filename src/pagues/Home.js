@@ -1,11 +1,12 @@
 
 import {useEffect, useState} from "react"
 
-import {Link, useLocation} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 const Home = () => {
-    const [position,setPosition] =useState({
+    const [stateposition,setStateposition] =useState({
+    //const [stateposition,setPosition] =useState({
         longitud:0,
         latitud:0
 
@@ -16,7 +17,7 @@ const Home = () => {
     useEffect(()=>{
         navigator.geolocation.getCurrentPosition(
         function (position){
-            setPosition({
+            setStateposition({
                 longitud:position.coords.longitude,
                 latitud:position.coords.latitude
 
@@ -28,15 +29,16 @@ const Home = () => {
         {
             enableHighAccuracy:true//para activar el GPS
         })
-    })
+    }, [])
+    console.log(stateposition);
   return (
     <>  
         <h2>GeoLocation</h2>
-        <p>Longitud:{position.longitud}</p>
-        <p>Latitud:{position.latitud}</p>
+        <p>Longitud:{stateposition.longitud}</p>
+        <p>Latitud:{stateposition.latitud}</p>
         <Link to={{
             pathname:"/map",
-            position
+            stateposition: stateposition 
         }}>See my location</Link>
 
     </>
