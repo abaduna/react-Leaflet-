@@ -9,13 +9,13 @@ import CustomMarker from '../Marker/Marker';
 import data from "../../assets/data.json"
 import { useState,useEffect } from 'react';
 
-import { useLocation } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 function ChangeView({ center, zoom }) { const map = useMap(); map.setView(center, zoom); return null; }
 
 function MapView() {
     const location = useLocation();
-    // const places = location.state; // Access the state passed from the Home component
+    
     const places = data.places
     const [centerMap,setCenterMap] = useState({
         currentLocation: {lat:"52.52437",lng:"13.41053"},
@@ -32,7 +32,9 @@ function MapView() {
             lng: location.state.longitud,
           },
         }));
+       
       }
+      
       console.log(`if`);
       console.log(centerMap);
     }, [location]);
