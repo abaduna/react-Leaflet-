@@ -30,19 +30,13 @@ const Home = () => {
             enableHighAccuracy:true//para activar el GPS
         })
     }, [])
-    console.log(`stateposition: ${stateposition}`);
+    console.log(stateposition);
   return (
     <>  
         <h2>GeoLocation</h2>
         <p>Longitud:{stateposition.longitud}</p>
         <p>Latitud:{stateposition.latitud}</p>
-        <Link to={{
-            pathname:"/map",
-            state: {
-                longitud: stateposition.longitud,
-                latitud: stateposition.latitud,
-              },
-        }}>See my location</Link>
+        <Link to="/map" state={stateposition}>See my location</Link>
 
     </>
   )
