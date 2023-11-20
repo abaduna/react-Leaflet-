@@ -19,9 +19,12 @@ function MapView() {
         zoom:13
     })
 
+    const location = useLocation();
 
-    const location = useLocation()
+
+    
     console.log(location);
+    
 
   return (
     <MapContainer className="map-container"  center={centerMap.currentLocation} zoom={centerMap.zoom}>
